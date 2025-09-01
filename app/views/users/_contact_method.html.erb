@@ -1,0 +1,7 @@
+<div>
+  <%= show_contact_method(contact_method[:type]) %>
+  <span class="badge bg-primary-subtle text-primary-emphasis rounded-pill">
+    <%= contact_method[:summary] %>
+  </span>
+  : <%= display_contact_info(contact_method[:details]) %>
+</div>

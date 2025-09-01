@@ -1,0 +1,26 @@
+<table class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Time Zone</th>
+      <th>Color</th>
+      <th>view</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.time_zone %></td>
+        <td><%= user.color %></td>
+        <td><%= link_to "View Details", user_path(user), class: "btn btn-sm btn-outline-secondary"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

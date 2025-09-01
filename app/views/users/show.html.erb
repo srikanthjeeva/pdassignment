@@ -1,0 +1,19 @@
+<h1>User Details</h1>
+<% if @user%>
+<p>
+  <strong>ID:</strong> <%= @user.id %><br>
+  <strong>First Name:</strong> <%= @user.first_name %><br>
+  <strong>Last Name:</strong> <%= @user.last_name %><br>
+  <strong>Email:</strong> <%= @user.email %><br>
+  <strong>Contact Methods:</strong> 
+  <% @user.contact_methods_with_details.each do |contact_method| %>
+    <%= render 'contact_method', contact_method: contact_method %>
+  <% end %><br>
+
+  <strong>Time Zone:</strong> <%= @user.time_zone %><br>
+  <strong>Color:</strong> <%= @user.color %><br>
+</p>
+
+<% else %>
+  <p>User not found.</p>
+<% end %>
