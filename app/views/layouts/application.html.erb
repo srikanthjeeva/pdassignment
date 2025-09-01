@@ -46,6 +46,19 @@
           </div> 
         </div>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <% flash.each do |name, msg| %>
+            <% if name == "error" %>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <%= msg %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            <% else %>
+              <div class="alert alert-<%= name == "notice" ? "success" : "info" %> alert-dismissible fade show" role="alert">
+                <%= msg %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            <% end %>
+          <% end %>
 
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"> 
             <h1 class="h2">Users</h1> 

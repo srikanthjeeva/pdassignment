@@ -28,7 +28,7 @@ class UserService
             response = yield
             handle_response(response)
         rescue HTTP::ConnectionError
-            raise PagerDutyError.new(503, "Connection failed. Please check your internet connection.")
+            raise PagerDutyError.new(503, "Connection failed. Pagerduty API URL is wrong or not reachable.")
         rescue HTTP::TimeoutError
             raise PagerDutyError.new(504, "Request timed out. Please try again.")
         rescue HTTP::Error => e
