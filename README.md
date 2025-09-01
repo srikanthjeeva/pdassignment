@@ -12,7 +12,7 @@ This Rails application integrates with the PagerDuty API to list users and their
 
 1. Clone the repository:
 ```bash
-git clone [repository-url]
+git clone https://github.com/srikanthjeeva/pdassignment.git
 cd pagerduty
 ```
 
