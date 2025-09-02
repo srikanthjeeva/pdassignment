@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
 
   def handle_pager_duty_error(error)
     flash[:error] = error.message
-    redirect_back(fallback_location: common_error_path)
+    redirect_to common_error_path
   end
 end

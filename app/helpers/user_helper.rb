@@ -1,5 +1,4 @@
 module UserHelper
-
   def show_contact_method(contact_type)
     contact_type.split("_").map(&:capitalize).join(" ")
   end
