@@ -13,7 +13,7 @@ This Rails application integrates with the PagerDuty API to list users and their
 1. Clone the repository:
 ```bash
 git clone https://github.com/srikanthjeeva/pdassignment.git
-cd pagerduty
+cd pdassignment
 ```
 
 2. Install dependencies:
@@ -34,13 +34,11 @@ bundle install
    ```
 
 4. **Generate or Add a Master Key**:
-   Rails uses a master key to encrypt credentials. If you don't have a `config/master.key` file, you can generate one.
+   Master key is sent via email. use it here. replace master-key with the key sent via email
    ```bash
-   # If config/master.key does not exist, this will create it.
-   # If it does exist, it will open the credentials for editing.
-   bundle exec rails credentials:edit
+   echo "master-key" > config/master.key
    ```
-   This command will also open `config/credentials.yml.enc`, which is where you can store secrets. For this application, no additional secrets are needed in the credentials file, but the master key must exist.
+
 
 ## Running the Application
 
@@ -68,10 +66,19 @@ To run the application using Docker:
 ```bash
 docker build -t pagerduty-app .
 ```
+2. Export master key:
 
-2. Run the container:
 ```bash
-docker run -p 3001:3000 -e RAILS_MASTER_KEY=$RAILS_MASTER_KEY pagerduty-app
+export RAILS_MASTER_KEY=$(cat config/master.key)
 ```
+
+3. Run the container:
+```bash
+docker run -p 3000:3000 -e RAILS_MASTER_KEY=$RAILS_MASTER_KEY pagerduty-app
+```
+
+4. Access the application:
+   - Open your browser and navigate to `http://localhost:3000`
+   - You should see the users listing page
 
  
