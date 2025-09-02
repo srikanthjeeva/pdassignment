@@ -33,7 +33,7 @@ bundle install
      pager_duty_url: 'https://api.pagerduty.com'
    ```
 
-4. **Generate or Add a Master Key**:
+4. **Add the Master Key sent via email**:
    Master key is sent via email. use it here. replace master-key with the key sent via email
    ```bash
    echo "master-key" > config/master.key
