@@ -33,6 +33,15 @@ bundle install
      pager_duty_url: 'https://api.pagerduty.com'
    ```
 
+4. **Generate or Add a Master Key**:
+   Rails uses a master key to encrypt credentials. If you don't have a `config/master.key` file, you can generate one.
+   ```bash
+   # If config/master.key does not exist, this will create it.
+   # If it does exist, it will open the credentials for editing.
+   bundle exec rails credentials:edit
+   ```
+   This command will also open `config/credentials.yml.enc`, which is where you can store secrets. For this application, no additional secrets are needed in the credentials file, but the master key must exist.
+
 ## Running the Application
 
 1. Start the Rails server:
@@ -44,7 +53,6 @@ rails server
    - Open your browser and navigate to `http://localhost:3000`
    - You should see the users listing page
 
-# The following are TODO:
 ## Testing
 
 Run the test suite:
@@ -52,7 +60,7 @@ Run the test suite:
 rails test
 ```
 
-## Docker Support
+## To run using Docker
 
 To run the application using Docker:
 
@@ -63,7 +71,7 @@ docker build -t pagerduty-app .
 
 2. Run the container:
 ```bash
-docker run -p 3000:3000 pagerduty-app
+docker run -p 3001:3000 -e RAILS_MASTER_KEY=$RAILS_MASTER_KEY pagerduty-app
 ```
 
  
